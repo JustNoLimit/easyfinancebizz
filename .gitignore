@@ -1,0 +1,15 @@
+node_modules/
+*.log
+.env
+.env.*
+
+# Local credentials and persisted runtime state
+.vps-access/
+.ssh/
+data/
+.vault/
+state.enc
+vault.key
+setup-token
+*.pem
+*.key

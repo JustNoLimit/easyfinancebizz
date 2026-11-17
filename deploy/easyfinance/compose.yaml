@@ -1,0 +1,81 @@
+name: easyfinance
+services:
+  app:
+    build:
+      context: ../..
+    restart: unless-stopped
+    depends_on:
+      - portal-worker
+    init: true
+    environment:
+      PUBLIC_ORIGIN: https://finance.107.175.212.3.sslip.io
+      DATA_DIR: /data
+      PORTAL_WORKER_URL: http://portal-worker:3005
+      PORTAL_TOKEN_FILE: /run/secrets/portal-token
+    volumes:
+      - data:/data
+      - /srv/hosting/secrets/portal-token:/run/secrets/portal-token:ro
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    networks:
+      portal:
+      web:
+        aliases:
+          - easyfinance
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 80
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  portal-worker:
+    build:
+      context: ../../portal-worker
+    restart: unless-stopped
+    init: true
+    read_only: true
+    user: "1000:1000"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /srv/hosting/secrets/portal-token:/run/secrets/portal-token:ro
+    tmpfs:
+      - /tmp:size=160m,mode=1777
+    shm_size: 64m
+    mem_limit: 448m
+    cpus: 0.75
+    pids_limit: 256
+    healthcheck:
+      test: ["CMD", "node", "-e", "const fs=require('fs');fetch('http://127.0.0.1:3005/health',{headers:{Authorization:'Bearer '+fs.readFileSync('/run/secrets/portal-token','utf8').trim()}}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+    networks:
+      - portal
+      - portal-egress
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+networks:
+  portal:
+    internal: true
+  portal-egress:
+  web:
+    external: true
+    name: hosting-web
+
+volumes:
+  data:
+    external: true
+    name: easyfinance_data

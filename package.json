@@ -1,0 +1,14 @@
+{
+  "name": "easyfinancebizz",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check integration.js && node --check mydata.js && node --check vault.js && node --check services.js && node --check official-services.js && node --check service-routes.js && node --check portal-client.js && node --check portal-worker/worker.js && node --check portal-worker/policy.js && node --check portal-worker/login.js && node --check portal-worker/collect.js && node --check portal-worker/identity.js && node --check portal-worker/vat-collector.js && node --check portal-worker/efka-collector.js && node --check portal-worker/keao-collector.js && node --check portal-worker/employer-collector.js && node --check taxisnet.js && node --check taxisnet-routes.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.12.1"
+  }
+}

@@ -1,0 +1,6 @@
+# Start with HTTP by IP. Once DNS is verified, replace this address with
+# finance.107.175.212.3.sslip.io (without http://) for automatic HTTPS.
+http://107.175.212.3 {
+    encode zstd gzip
+    reverse_proxy easyfinance:3000
+}

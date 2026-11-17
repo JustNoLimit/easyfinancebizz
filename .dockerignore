@@ -1,0 +1,7 @@
+.git
+node_modules
+.env*
+*.log
+deploy
+README.md
+portal-worker/node_modules

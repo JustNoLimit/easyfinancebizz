@@ -1,0 +1,51 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <env:Header/>
+   <env:Body>
+      <srvc:rgWsPublic2AfmMethodResponse xmlns="http://rgwspublic2/RgWsPublic2" xmlns:srvc="http://rgwspublic2/RgWsPublic2Service">
+         <srvc:result>
+            <rg_ws_public2_result_rtType>
+               <call_seq_id>862367686</call_seq_id>
+               <error_rec>
+                  <error_code xsi:nil="true"/>
+                  <error_descr xsi:nil="true"/>
+               </error_rec>
+               <afm_called_by_rec>
+                  <token_username>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</token_username>
+                  <token_afm>XXXXXXXXX</token_afm>
+                  <token_afm_fullname>FIF*** USE*** του TAX***</token_afm_fullname>
+                  <afm_called_by>XXXXXXXXX</afm_called_by>
+                  <afm_called_by_fullname>FIF*** USE*** του TAX***</afm_called_by_fullname>
+                  <as_on_date>2018-07-04</as_on_date>
+               </afm_called_by_rec>
+               <basic_rec>
+                  <afm>090165560</afm>
+                  <doy>1104</doy>
+                  <doy_descr>Δ΄ ΑΘΗΝΩΝ</doy_descr>
+                  <i_ni_flag_descr>ΜΗ ΦΠ</i_ni_flag_descr>
+                  <deactivation_flag>1</deactivation_flag>
+                  <deactivation_flag_descr>ΕΝΕΡΓΟΣ ΑΦΜ</deactivation_flag_descr>
+                  <firm_flag_descr>ΕΠΙΤΗΔΕΥΜΑΤΙΑΣ</firm_flag_descr>
+                  <onomasia>ΥΠΟΥΡΓΕΙΟ ΟΙΚΟΝΟΜΙΚΩΝ ΓΕΝΙΚΗ   ΔIEYΘΥΝΣΗ  Δ ΚΗΣΥΠ ΞΗΣ Δ ΟΙΚ</onomasia>
+                  <commer_title xsi:nil="true"/>
+                  <legal_status_descr>ΔΗΜΟΣΙΑ ΥΠΗΡΕΣΙΑ</legal_status_descr>
+                  <postal_address>Κ ΣΕΡΒΙΑΣ</postal_address>
+                  <postal_address_no>10</postal_address_no>
+                  <postal_zip_code>10110</postal_zip_code>
+                  <postal_area_description>ΑΘΗΝΑ</postal_area_description>
+                  <regist_date>1993-02-08</regist_date>
+                  <stop_date xsi:nil="true"/>
+                  <normal_vat_system_flag>N</normal_vat_system_flag>
+               </basic_rec>
+               <firm_act_tab>
+                  <item>
+                     <firm_act_code>84111000</firm_act_code>
+                     <firm_act_descr>ΓΕΝΙΚΕΣ ΔΗΜΟΣΙΕΣ ΥΠΗΡΕΣΙΕΣ</firm_act_descr>
+                     <firm_act_kind>1</firm_act_kind>
+                     <firm_act_kind_descr>ΚΥΡΙΑ</firm_act_kind_descr>
+                  </item>
+               </firm_act_tab>
+            </rg_ws_public2_result_rtType>
+         </srvc:result>
+      </srvc:rgWsPublic2AfmMethodResponse>
+   </env:Body>
+</env:Envelope>
